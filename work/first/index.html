@@ -58,11 +58,12 @@
     });
     // 第3問  id='q3'の要素をクリックしたらこの要素の前後とこの要素内の前後にテキストを挿入せよ。
     $('#q3').on('click', function () {
-      $(this).before('before');
-      $(this).after('after');
-      $(this).prepend('prepend');
-      $(this).append('append');
-    })
+      $(this)
+        .before('before')
+        .after('after')
+        .prepend('prepend')
+        .append('append');
+    });
     // 第4問  id='q4'の要素をクリックしたらこの要素にlargeというクラスを付与せよ。
     $('#q4').on('click', addLargeClass);
     function addLargeClass() {
