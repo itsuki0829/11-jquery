@@ -19,6 +19,7 @@
   <script>
     // 回答はここに書いてね
     $(document).on('click', '#pokemon_search', searchPokemon);
+
     function searchPokemon() {
       let pokemonId = Math.floor(Math.random() * 151) + 1;
 
@@ -27,7 +28,7 @@
         method: 'GET'
       })
         .done(function (res) {
-          $(`#wrapper`).html(encountHtml);
+          $('#wrapper').html(encountHtml);
           $('.name').text(res.name);
           $('.img').attr('src', res.sprites.front_default);
         })
@@ -37,8 +38,10 @@
     }
 
     $(document).on('click', '#catch', catchPokemon);
+
     function catchPokemon() {
       let random = Math.floor(Math.random() * 2);
+
       if (random === 0) {
         $('#wrapper').html(doneHtml);
 
@@ -47,17 +50,17 @@
           'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'
         );
       } else {
-        $('#wrapper').html(failHtml)
+        $('#wrapper').html(failHtml);
       }
     }
 
     $(document).on('click', '[data-js="reset"]', resetScreen);
+
     function resetScreen() {
       $('#wrapper').html(
         '<button type="button" class="btn search-btn" id="pokemon_search">ポケモンを探す</button>'
       );
     }
-
     // 「捕まえる」失敗時の画面表示
     let failHtml =
       `
