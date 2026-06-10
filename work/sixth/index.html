@@ -20,42 +20,41 @@
     <script>
       // 「捕まえる」失敗時の画面表示
       let failHtml = `
-    <p class="text">逃げられてしまった...</p>
-    <button class="btn mt" data-js="reset">戻る</button>
-  `;
+        <p class="text">逃げられてしまった...</p>
+        <button class="btn mt" data-js="reset">戻る</button>
+      `;
 
       // 「ポケモンを探す」後の画面表示
       let encountHtml = `
-    <p class="name"></p>
-    <div>
-      <img class="img" src="" alt="">
-    </div>
-    <div>
-      <button class="btn" id="catch">捕まえる</button>
-      <button class="btn" data-js="reset">逃げる</button>
-    </div>
-  `;
+        <p class="name"></p>
+        <div>
+          <img class="img" src="" alt="">
+        </div>
+        <div>
+          <button class="btn" id="catch">捕まえる</button>
+          <button class="btn" data-js="reset">逃げる</button>
+        </div>
+      `;
 
       // 「捕まえる」成功時の画面表示
       let doneHtml = `
-    <p class="name">ゲットしました</p>
-    <div>
-      <img class="img" src="" alt="">
-    </div>
-    <button class="btn" data-js="reset">戻る</button>
-  `;
+        <p class="name">ゲットしました</p>
+        <div>
+          <img class="img" src="" alt="">
+        </div>
+        <button class="btn" data-js="reset">戻る</button>
+      `;
 
       let resetHtml = `
-  <button type="button" class="btn search-btn" id="pokemon_search">
-    ポケモンを探す
-  </button>
-`;
+        <button type="button" class="btn search-btn" id="pokemon_search">
+          ポケモンを探す
+        </button>
+      `;
 
       let errorHtml = `
-  <p class="text">データの取得に失敗しました。</p>
-  <button class="btn mt" data-js="reset">戻る</button>
-`;
-      $(document).on("click", "#pokemon_search", searchPokemon);
+        <p class="text">データの取得に失敗しました。</p>
+        <button class="btn mt" data-js="reset">戻る</button>
+      `;
 
       function searchPokemon() {
         let pokemonId = Math.floor(Math.random() * 151) + 1;
@@ -85,8 +84,6 @@
         });
       }
 
-      $(document).on("click", "#catch", catchPokemon);
-
       function catchPokemon() {
         let random = Math.floor(Math.random() * 2);
 
@@ -102,11 +99,13 @@
         }
       }
 
-      $(document).on("click", '[data-js="reset"]', resetScreen);
-
       function resetScreen() {
         $("#wrapper").html(resetHtml);
       }
+
+      $(document).on("click", "#pokemon_search", searchPokemon);
+      $(document).on("click", "#catch", catchPokemon);
+      $(document).on("click", '[data-js="reset"]', resetScreen);
     </script>
   </body>
 </html>
